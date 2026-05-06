@@ -8,6 +8,7 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
         <class>entidad.EstacionServicio</class>
+        <class>entidad.Distribuidor</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/combustibleDB"/>

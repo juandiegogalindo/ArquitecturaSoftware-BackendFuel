@@ -5,7 +5,6 @@
  */
 package entidad;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,9 +16,12 @@ import javax.persistence.Id;
  *
  * @author jdgal
  */
-
 @Entity
 public class EstacionServicio {
+
+    // DISTRIBUIDOR
+    @ManyToOne
+    private Distribuidor distribuidor;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +30,8 @@ public class EstacionServicio {
     private String nombre;
     private String ubicacion;
 
-    public EstacionServicio() {}
+    public EstacionServicio() {
+    }
 
     public Long getId() {
         return id;
@@ -52,5 +55,13 @@ public class EstacionServicio {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
     }
 }
