@@ -9,6 +9,7 @@
 
         <class>entidad.EstacionServicio</class>
         <class>entidad.Distribuidor</class>
+        <class>entidad.Abastecimiento</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/combustibleDB"/>

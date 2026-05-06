@@ -13,11 +13,10 @@ import java.util.List;
  *
  * @author jdgal
  */
-
 public class DistribuidorDAO {
 
-    private EntityManagerFactory emf =
-        Persistence.createEntityManagerFactory("CombustiblePU");
+    private EntityManagerFactory emf
+            = Persistence.createEntityManagerFactory("CombustiblePU");
 
     public void create(Distribuidor d) {
         EntityManager em = emf.createEntityManager();
@@ -30,11 +29,19 @@ public class DistribuidorDAO {
     public List<Distribuidor> findAll() {
         EntityManager em = emf.createEntityManager();
         return em.createQuery("SELECT d FROM Distribuidor d", Distribuidor.class)
-                 .getResultList();
+                .getResultList();
     }
 
     public Distribuidor findById(Long id) {
         EntityManager em = emf.createEntityManager();
         return em.find(Distribuidor.class, id);
+    }
+
+    public void update(Distribuidor d) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(d);
+        em.getTransaction().commit();
+        em.close();
     }
 }
