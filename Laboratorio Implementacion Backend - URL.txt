@@ -1,0 +1,62 @@
+Arquitectura Software - Laboratorio Backend
+
+Agregar Estación de Servicio
+
+POST
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones
+{
+  "nombre": "Estacion Centro",
+  "ubicacion": "Medellin"
+}
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/distribuidores
+{
+  "nombre": "Distribuidor Central",
+  "capacidad": 5000
+}
+
+RELACION DE ESTACION CON DISTRIBUIDOR
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones
+{
+  "nombre": "Estacion Relacionada",
+  "ubicacion": "Bogota",
+  "distribuidor": {
+    "id": 1
+  }
+}
+
+ABASTECIMIENTO SOLICITADO Y REDUCIDO
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/abastecimiento
+{
+  "distribuidorId": 1,
+  "estacionId": 1,
+  "cantidad": 1000
+}
+
+2. Evidenciar Esto
+
+GET
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/distribuidores
+
+3. Evidenciar Estación por ID.
+
+   GET 
+	http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones/#
+
+4. Actualizar el servicio.
+   
+   PUT
+	http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones/1
+
+	{
+  		"nombre": "Estacion Actualizada",
+  		"ubicacion": "Bogota"
+	}
+
+5. Eliminar
+
+	DELETE http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones/1
