@@ -34,6 +34,20 @@ http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/abastecimiento
   "cantidad": 1000
 }
 
+Agregar Usuario:
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/usuarios
+
+Hacer Venta:
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/ventas
+
+{
+  "usuarioId": 1,
+  "estacionId": 1,
+  "cantidad": 10
+}
+
 2. Evidenciar Esto
 
 GET
@@ -60,3 +74,9 @@ http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/distribuidores
 5. Eliminar
 
 	DELETE http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estaciones/1
+
+6. Estadísticas
+
+GET:
+
+http://localhost:8080/EjercicioArqSoftware-BackendFuel/api/estadisticas
