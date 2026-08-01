@@ -134,5 +134,7 @@ ArquitecturaSoftware-BackendFuel/
 ## Autor
 
 **Juan Diego Galindo**
-Estudiante de Ingeniería de Sistemas
-GitHub: [@juandiegogalindo](https://github.com/juandiegogalindo)
+Estudiante de Ingeniería de Sistemas - Septimo Semestre
+ 
+- GitHub: [@juandiegogalindo](https://github.com/juandiegogalindo)
+- LinkedIn: [Juan Diego Galindo - Full Stack](https://linkedin.com/in/jdgalindo6)
