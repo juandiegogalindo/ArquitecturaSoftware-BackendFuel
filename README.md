@@ -131,64 +131,6 @@ ArquitecturaSoftware-BackendFuel/
 
 > La base de datos se crea automáticamente al iniciar (`eclipselink.ddl-generation=create-tables`), por lo que no es necesario crear las tablas manualmente.
 
-## Endpoints de la API
-
-### Estaciones de servicio — `/api/estaciones`
-
-| Método | Ruta | Descripción | Body |
-|---|---|---|---|
-| `GET` | `/api/estaciones` | Lista todas las estaciones | — |
-| `GET` | `/api/estaciones/{id}` | Consulta una estación por ID | — |
-| `POST` | `/api/estaciones` | Crea una estación (opcionalmente relacionada a un distribuidor) | `{ "nombre": "...", "ubicacion": "...", "distribuidor": { "id": 1 } }` |
-| `PUT` | `/api/estaciones/{id}` | Actualiza nombre y ubicación de una estación | `{ "nombre": "...", "ubicacion": "..." }` |
-| `DELETE` | `/api/estaciones/{id}` | Elimina una estación | — |
-
-### Distribuidores — `/api/distribuidores`
-
-| Método | Ruta | Descripción | Body |
-|---|---|---|---|
-| `GET` | `/api/distribuidores` | Lista todos los distribuidores | — |
-| `POST` | `/api/distribuidores` | Crea un distribuidor | `{ "nombre": "...", "capacidad": 5000 }` |
-
-### Abastecimiento — `/api/abastecimiento`
-
-| Método | Ruta | Descripción | Body |
-|---|---|---|---|
-| `POST` | `/api/abastecimiento` | Registra la entrega de combustible de un distribuidor a una estación y reduce la capacidad del distribuidor | `{ "distribuidorId": 1, "estacionId": 1, "cantidad": 1000 }` |
-
-Responde `400 Bad Request` si el distribuidor o la estación no existen, o si la capacidad del distribuidor es menor a la cantidad solicitada.
-
-### Usuarios — `/api/usuarios`
-
-| Método | Ruta | Descripción | Body |
-|---|---|---|---|
-| `GET` | `/api/usuarios` | Lista todos los usuarios | — |
-| `POST` | `/api/usuarios` | Crea un usuario | `{ "nombre": "...", "tipo": "..." }` |
-
-### Ventas — `/api/ventas`
-
-| Método | Ruta | Descripción | Body |
-|---|---|---|---|
-| `GET` | `/api/ventas` | Lista todas las ventas | — |
-| `POST` | `/api/ventas` | Registra una venta de combustible a un usuario | `{ "usuarioId": 1, "estacionId": 1, "cantidad": 10 }` |
-
-Responde `400 Bad Request` si el usuario o la estación no existen, o si la cantidad es menor o igual a cero.
-
-### Estadísticas — `/api/estadisticas`
-
-| Método | Ruta | Descripción |
-|---|---|---|
-| `GET` | `/api/estadisticas` | Devuelve el total de ventas, ingresos, combustible vendido y abastecimientos registrados |
-
-## Notas y limitaciones conocidas
-
-- El **precio del combustible está fijo en código** (`10000` por unidad, en `VentaLogic`), no es configurable ni consultable vía API.
-- El endpoint `PUT /api/estaciones/{id}` solo actualiza `nombre` y `ubicacion`; no permite reasignar el distribuidor de la estación.
-- No hay operaciones de actualización o eliminación para `Distribuidor`, `Usuario` ni `Venta` (solo creación y consulta).
-- `GenericResource.java` es una clase de ejemplo generada automáticamente por NetBeans al crear el proyecto; no forma parte de la lógica funcional del backend.
-- La conexión a la base de datos está **codificada directamente** en `persistence.xml` (host, usuario y contraseña), por lo que el proyecto no es portable sin editar ese archivo.
-- El nombre de despliegue del WAR (`EjercicioArqSoftware-BackendFuel`) difiere del nombre del repositorio; por eso las rutas de la API usan ese primer nombre como contexto.
-
 ## Autor
 
 **Juan Diego Galindo**
